@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Main Page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn-webgl.wrld3d.com/wrldjs/dist/latest/wrld.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet" />
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="../js/323jump_function.js"></script>
+        <script src="../js/323js.cookie.js"></script>
+        <link rel="stylesheet" href="../css/style_button.css">
+        <link rel="stylesheet" href="../css/style_upperbar.css">
+        <link rel="stylesheet" href="../css/style_home.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <header>
+        <div class="topnav" style="text-align:center;">
+            <a class="active" onclick="gohome()">Home</a>
+            <a onclick="goabout()">About</a>
+            <input type="text" class="search_bar" style="font-size:15px;border:none;border-bottom:2px solid beige;background:transparent;color: white;" name="search_word" id="search_word" size="35" placeholder="Search more clubs...">
+            <input type="image" src = "../img/search.png" class="search-img" onclick="gosearchresult()"/>
+            <span id="login_icon" onclick="gologin()" class="glyphicon glyphicon-log-in user-icon" style="font-size: 43px;border-radius: 50%;"></span>
+            <span id="logout_icon" onclick="gologout()" class="glyphicon glyphicon-log-out user-icon" style="font-size: 43px;border-radius: 50%;"></span>
+            <input id="login_img" onclick="goprofile()" type="image" class="user-icon user-icon1"  src="../img/wolfie.png" />
+            <input id="logout_img" type="image" class="user-icon user-icon1"  src="../img/profile.png" />
+        </div>
+    </header>
+    <body>
+        <div class="map-content">
+            <div class="select-category">
+                <button onclick="selectByCategory();" class="select-btn"><i class="fa fa-caret-down"></i>  Category</button>
+                <div id="c-DropDown" class="dropdown-content">
+                    <input onclick="academic()" type="button" value="Academic/Honor Society">
+                    <input onclick="culture()" type="button" value="Cultural">
+                    <input onclick="fraternity()" type="button" value="Fraternities/Sororities">
+                    <input onclick="media()" type="button" value="Media Organizations">
+                    <input onclick="performance()" type="button" value="Performance Organizations">
+                    <input onclick="activism()" type="button" value="Activism/Advocacy">
+                    <input onclick="religion()" type="button" value="Religious Spritual ">
+                    <input onclick="leisure()" type="button" value="Leisure Activities">
+                    <input onclick="service()" type="button" value="Community Awareness/Service">
+                    <input onclick="sport()" type="button" value="Sport Clubs">
+                </div>
+            </div>
+            <div class="select-time">
+                <button onclick="selectByTime();" class="select-btn"><i class="fa fa-caret-down"></i>  Time</button>
+                <div id="t-DropDown" class="dropdown-content">
+                    <input onclick="select0()" type="button" value="Before 11:00">
+                    <input onclick="select1()" type="button" value="11:00 - 15:00">
+                    <input onclick="select2()" type="button" value="15:00 - 19:00">
+                    <input onclick="select3()" type="button" value="After 19:00">
+                </div>
+            </div>
+            <div id="map"></div>
+            <script src = "../js/map.js"></script>
+        </div>
+    </body>
+    <script>
+        function selectByCategory() {
+            if(document.getElementById("c-DropDown").style.display=="none"){
+                document.getElementById("c-DropDown").style.display = "block";
+            }else{
+                document.getElementById("c-DropDown").style.display = "none";
+            }
+        }
+        function selectByTime() {
+            if(document.getElementById("t-DropDown").style.display=="none"){
+                document.getElementById("t-DropDown").style.display = "block";
+            }else{
+                document.getElementById("t-DropDown").style.display = "none";
+            }
+        }
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.select-btn')) {
+                document.getElementById("c-DropDown").style.display = "none";
+            }
+        }
+    </script>
+    <script>
+        var username = $.cookie('username');
+        if(username==""||username==undefined){
+            document.getElementById("logout_icon").style.display = "none";
+            document.getElementById("login_img").style.display = "none";
+        }else{            
+            document.getElementById("login_icon").style.display = "none";
+            document.getElementById("logout_img").style.display = "none";
+        }
+    </script>
+</html>
