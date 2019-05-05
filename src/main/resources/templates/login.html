@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/style_login.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="../js/323js.cookie.js"></script>
+        <script src="../js/323login.js"></script>   
+    </head>
+    <body>
+        <div class="my-container-login" id="myForm">
+        <div class="my-wrap-login" style="background-color:white; opacity:1"> 
+            <div class="my-login-logo">
+                <img src="../img/login.png">
+            </div>
+            <br>
+            <form id="login" action>
+                <div class="my-wrap-login-input">
+                    <input id="name" type = "text" name = "username" placeholder="Username" class="my-login-input" required><br>
+                </div>
+                <div class="my-wrap-login-input">
+                    <input id="pwd" type = "password" name = "pwd" placeholder="Password" class="my-login-input" required><br>
+                </div>
+            
+                <div class="my-container-login-btn">
+                    <button class="my-login-btn" type="submit">Login </button>
+                </div>
+            </form>
+            <br>
+            <div class="text-center">Don't have an account?
+                <a onclick="window.location.href='/register.html'"><u>Sign Up</u></a>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
